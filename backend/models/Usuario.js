@@ -18,18 +18,25 @@ const usuarioSchema=mongoose.Schema({
         trim:true,
         unique:true,
     },
+    area:{
+        type:Number,
+        required:true,
+        trim:true,
+    },
+    rol:{
+        type:String,
+        required:true,
+        trim:true,
+    },
     token:{
         type:String,
     },
     confirmado:{
         type:Boolean,
         default:false,
-    },
+    }
     
 },
-{
-    timestamps:true,
-}
 );
 usuarioSchema.pre('save',async function(next){
     if(!this.isModified('password')){
@@ -42,11 +49,6 @@ usuarioSchema.pre('save',async function(next){
 usuarioSchema.methods.comprobarPassword=async function(passwordFormulario){
     return await bcrypt.compare(passwordFormulario,this.password)
 }
-
-
-
-
-
 const Usuario=mongoose.model("Usuario",usuarioSchema);
 
 export default Usuario;

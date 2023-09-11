@@ -1,0 +1,6 @@
+[
+    {"nombre": "Felipe Muñoz","email": "felipe@mai.com","password":"$2y$10$iBEd1ZsJFFcmq9c5lESor.waPcgqNV65whXPUnaa21wAHFYwkpOpW","rol":"usuario","area":2,"token":"Sz2bx9upxrefPTW4Xv0r"}
+],
+[
+    {"nombre": "Felipe Jeria","email": "felipe.j@mail.com","password":"$2y$10$iBEd1ZsJFFcmq9c5lESor.waPcgqNV65whXPUnaa21wAHFYwkpOpW","rol":"usuario","area":3,"token":"Sz2bx9upxrefPTW4Xv0r","confirmado":false}
+]
