@@ -11,10 +11,39 @@ const Reportar = () => {
         <h3 className="text-gray-400 text-xl font-black">
           {" "}
           Reporta a
-          <span className="text-sky-500"> un empleado por mal comportamiento</span>
+          <span className="text-sky-500">
+            {" "}
+            un empleado por mal comportamiento
+          </span>
         </h3>
 
         <form className="my-5">
+          <label
+            htmlFor="motivo-reporte"
+            className=" font-bold uppercase block text-xl text-gray-600 mt-3"
+          >
+            Motivo del Reporte
+          </label>
+          <input
+            id="motivo-reporte"
+            type="text"
+            placeholder="Motivo del reporte"
+            className="w-full mt-3 p-3 border rounded-xl bg-gray-200 cursor-pointer"
+          />
+          <label
+            htmlFor="descripcion-reporte"
+            className=" font-bold uppercase block text-xl text-gray-600 mt-3"
+          >
+            Descripcion del Reporte
+          </label>
+          <textarea
+            id="reporte"
+            placeholder="Descripcion del reporte"
+            cols="30"
+            rows="10"
+            className="w-full mt-3 p-3 border rounded-xl bg-gray-200 cursor-pointer"
+          />
+
           <label
             htmlFor="email"
             className=" font-bold uppercase block text-xl text-gray-600 mt-3"
@@ -40,3 +69,4 @@ const Reportar = () => {
 };
 
 export default Reportar;
+
