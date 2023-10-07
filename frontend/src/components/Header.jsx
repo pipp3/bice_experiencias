@@ -4,7 +4,6 @@ import useAuth from "../hooks/useAuth";
 
 const Header = () => {
   const { auth } = useAuth();
-
   return (
     <header>
       <nav className="flex items-center justify-between flex-wrap bg-gray-200 p-6">
@@ -43,10 +42,34 @@ const Header = () => {
             >
               Foros
             </Link>
-            
+            <Link
+              to="reportar"
+              className="block mt-4 lg:inline-block lg:mt-0 text-sky-400 font-semibold text-xl hover:text-sky-700 mr-4"
+            >
+              Reportar
+            </Link>
           </div>
+          <h2 className="inline-block text-3xl lg:flex-grow  mt-4 lg:inline-block lg:mt-0 text-sky-800 font-bold mr-5 ">
+            Bienvenido
+            <p className="text-sky-800 inline-block">&nbsp; {auth.nombre}</p>
+          </h2>
           <div>
-            <h2  className="inline-block text-2xl lg:flex-grow  mt-4 lg:inline-block lg:mt-0 text-sky-400 font-bold mr-5 ">Bienvenido {auth.nombre}</h2>
+            {auth.rol == "admin" ? (
+              <Link
+                to="/panel"
+                className="inline-block text-sm px-4 py-2 leading-none border rounded font-semibold bg-sky-500 text-white border-white hover:border-transparent hover:text-white hover:bg-sky-700 mt-4 lg:mt-0"
+              >
+                Admin Panel
+              </Link>
+            ) : (
+              <Link
+                to="reportar"
+                className="inline-block text-sm px-4 py-2 leading-none border rounded font-semibold bg-sky-500 text-white border-white hover:border-transparent hover:text-white hover:bg-sky-700 mt-4 lg:mt-0"
+              >
+                Reportar Usuario
+              </Link>
+            )}
+
             <Link className="inline-block text-sm px-4 py-2 leading-none border rounded font-semibold bg-sky-500 text-white border-white hover:border-transparent hover:text-white hover:bg-sky-700 mt-4 lg:mt-0">
               Cerrar Sesion
             </Link>

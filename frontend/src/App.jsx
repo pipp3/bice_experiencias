@@ -9,8 +9,15 @@ import ForgetPassword from "./pages/ForgetPassword";
 import NewPassword from "./pages/NewPassword";
 import Inicio from "./pages/Inicio";
 import Encuestas from "./pages/Encuestas";
+import Panel from "./pages/Panel";
+import Reportar from "./pages/Reportar";
+import CrearUsuario from "./pages/CrearUsuario";
+import EditarUsuario from "./pages/EditarUsuario";
+import EliminarUsuario from "./pages/EliminarUsuario";
+
 
 import { AuthProvider } from "./context/AuthProvider";
+
 
 function App() {
   return (
@@ -27,6 +34,13 @@ function App() {
             <Route path="/inicio" element={<ProtectedRoute/>}>
               <Route index element={<Inicio/>}/>
               <Route path="encuestas" element={<Encuestas/>}/>
+              <Route path="reportar" element={<Reportar/>}/>
+            </Route>
+            <Route path="/panel" element={<ProtectedRoute/>}>
+              <Route index element={<Panel/>}/>
+              <Route path="crear-usuario" element={<CrearUsuario/>}/>
+              <Route path="editar-usuario" element={<EditarUsuario/>}/>
+              <Route path="eliminar-usuario" element={<EliminarUsuario/>}/>
             </Route>
           
           </Routes>

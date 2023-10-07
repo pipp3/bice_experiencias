@@ -4,7 +4,7 @@ import useAuth from "../hooks/useAuth";
 import Header from "../components/Header";
 
 const ProtectedRoute = () => {
-  const { auth,loading } = useAuth();
+  const { auth } = useAuth();
  
   return(
     <div>
@@ -12,7 +12,7 @@ const ProtectedRoute = () => {
        {auth._id ? (
         <div className="bg-gray-100">
           <Header/>
-          <div className="md:flex md:min-h-screen">
+          <div className="md:min-h-screen">
             <main>
              <Outlet/>
             </main>
