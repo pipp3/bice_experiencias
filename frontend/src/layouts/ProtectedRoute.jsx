@@ -4,9 +4,14 @@ import useAuth from "../hooks/useAuth";
 import Header from "../components/Header";
 
 const ProtectedRoute = () => {
+<<<<<<< HEAD
 
   const { auth,loading  } = useAuth();
   if (loading) return 'Cargando...'
+=======
+  const { auth } = useAuth();
+ 
+>>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
   return(
     <div>
       

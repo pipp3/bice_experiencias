@@ -1,5 +1,9 @@
 import { useState } from "react";
+<<<<<<< HEAD
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+=======
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+>>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
 
 import AuthLayout from "./layouts/AuthLayout";
 import ProtectedRoute from "./layouts/ProtectedRoute";
@@ -42,8 +46,12 @@ function App() {
               <Route path="editar-usuario" element={<EditarUsuario/>}/>
               <Route path="eliminar-usuario" element={<EliminarUsuario/>}/>
             </Route>
+<<<<<<< HEAD
 
               <Route path="*" element={<Navigate to="/"/>}/>
+=======
+          
+>>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
           </Routes>
         </AuthProvider>
       </BrowserRouter>

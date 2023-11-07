@@ -1,5 +1,8 @@
 import Usuario from "../models/Usuario.js";
+<<<<<<< HEAD
 import Reporte from "../models/reporte.js";
+=======
+>>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
 import generarJWT from "../helpers/generarJWT.js";
 import generarId from "../helpers/generarId.js";
 import { emailForgetPassword } from "../helpers/email.js";
@@ -81,7 +84,11 @@ const changePassword = async(req,res)=>{
     
     try {
       await usuario.save();
+<<<<<<< HEAD
       res.json({ msg: "Contraseña Modificda Correctamente" });
+=======
+      res.json({ msg: "Contraseña Modificda correctamente" });
+>>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
     } catch (error) {
       console.log(error);
     }
@@ -97,5 +104,9 @@ const profile = async (req, res) => {
   res.json(usuario);
 };
 
+<<<<<<< HEAD
 
 export { login,changePassword,checkToken,forgetPassword,profile};
+=======
+export { login,changePassword,checkToken,forgetPassword,profile };
+>>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca

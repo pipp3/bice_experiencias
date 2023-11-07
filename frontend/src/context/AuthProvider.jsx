@@ -6,7 +6,11 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({});
+<<<<<<< HEAD
   const [loading,setLoading]=useState(true)
+=======
+  const [loading, setLoading] = useState(true);
+>>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
 
   const navigate = useNavigate();
   
@@ -15,7 +19,11 @@ const AuthProvider = ({ children }) => {
       const token = localStorage.getItem("token");
       
       if (!token) {
+<<<<<<< HEAD
         setLoading(false)
+=======
+        setLoading(false);
+>>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
         return;
       }
       const config = {
@@ -25,6 +33,7 @@ const AuthProvider = ({ children }) => {
         },
       };
       try {
+<<<<<<< HEAD
         const {data} = await clientAxios("/usuarios/perfil", config);
         setAuth(data);
         navigate('/inicio')
@@ -34,6 +43,16 @@ const AuthProvider = ({ children }) => {
         setAuth({});
       }
       setLoading(false)
+=======
+        const data = await clientAxios("/usuarios/perfil", config);
+        setAuth(data);
+        
+      } catch (error) {
+        setAuth({});
+      } finally {
+        setLoading(false);
+      }
+>>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
     };
 
     authUser();
@@ -44,7 +63,11 @@ const AuthProvider = ({ children }) => {
       value={{
         auth,
         setAuth,
+<<<<<<< HEAD
         loading
+=======
+        loading,
+>>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
       }}
     >
       {children}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Alert from "../components/Alert";
@@ -38,6 +39,12 @@ const Reportar = () => {
 
   const { msg } = alert;
 
+=======
+import React from "react";
+import { Link } from "react-router-dom";
+
+const Reportar = () => {
+>>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
   return (
     <div className="container mx-auto mt-5 md:mt-3 p-5 md:flex md:justify-center">
       <div className="md:3/5 lg:w-2/5 bg-white shadow rounded-md px-10 py-5">
@@ -52,8 +59,13 @@ const Reportar = () => {
             un empleado por mal comportamiento
           </span>
         </h3>
+<<<<<<< HEAD
         {msg && <Alert alert={alert} />}
         <form onSubmit={handleSubmit} className="my-5">
+=======
+
+        <form className="my-5">
+>>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
           <label
             htmlFor="motivo-reporte"
             className=" font-bold uppercase block text-xl text-gray-600 mt-3"
@@ -63,8 +75,11 @@ const Reportar = () => {
           <input
             id="motivo-reporte"
             type="text"
+<<<<<<< HEAD
             value={motivo}
             onChange={(e) => setMotivo(e.target.value)}
+=======
+>>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
             placeholder="Motivo del reporte"
             className="w-full mt-3 p-3 border rounded-xl bg-gray-200 cursor-pointer"
           />
@@ -75,9 +90,13 @@ const Reportar = () => {
             Descripcion del Reporte
           </label>
           <textarea
+<<<<<<< HEAD
             id="descripcion"
             value={descripcion}
             onChange={(e) => setDescripcion(e.target.value)}
+=======
+            id="reporte"
+>>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
             placeholder="Descripcion del reporte"
             cols="30"
             rows="10"
@@ -93,8 +112,11 @@ const Reportar = () => {
           <input
             id="email"
             type="email"
+<<<<<<< HEAD
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+=======
+>>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
             placeholder="Email Laboral del Usuario a Reportar"
             className="w-full mt-3 p-3 border rounded-xl bg-gray-200 cursor-pointer"
           />
