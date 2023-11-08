@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
@@ -10,14 +9,6 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
   };
-=======
-import React from "react";
-import { Link } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
-
-const Header = () => {
-  const { auth } = useAuth();
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
   return (
     <header>
       <nav className="flex items-center justify-between flex-wrap bg-gray-200 p-6">
@@ -51,7 +42,7 @@ const Header = () => {
               Encuestas
             </Link>
             <Link
-              to="foros"
+              to="foro"
               className="block mt-4 lg:inline-block lg:mt-0 text-sky-400 font-semibold text-xl hover:text-sky-700 mr-4"
             >
               Foros
@@ -63,14 +54,15 @@ const Header = () => {
               Reportar
             </Link>
           </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
           <h2 className="inline-block text-3xl lg:flex-grow  mt-4 lg:inline-block lg:mt-0 text-sky-800 font-bold mr-5 ">
             Bienvenido
             <p className="text-sky-800 inline-block">&nbsp; {auth.nombre}</p>
           </h2>
+          <Link to="/perfil/mis-foros"
+                className="inline-block text-sm px-4 py-2 leading-none border rounded font-semibold bg-sky-500 text-white border-white hover:border-transparent hover:text-white hover:bg-sky-700 mt-4 lg:mt-0">
+            Mis foros
+          </Link>
           <div>
             {auth.rol == "admin" ? (
               <Link
@@ -88,15 +80,11 @@ const Header = () => {
               </Link>
             )}
 
-<<<<<<< HEAD
             <Link
               to="/"
               onClick={handleLogout}
               className="inline-block text-sm px-4 py-2 leading-none border rounded font-semibold bg-sky-500 text-white border-white hover:border-transparent hover:text-white hover:bg-sky-700 mt-4 lg:mt-0"
             >
-=======
-            <Link className="inline-block text-sm px-4 py-2 leading-none border rounded font-semibold bg-sky-500 text-white border-white hover:border-transparent hover:text-white hover:bg-sky-700 mt-4 lg:mt-0">
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
               Cerrar Sesion
             </Link>
           </div>

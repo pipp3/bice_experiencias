@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Alert from "../components/Alert";
@@ -31,7 +30,7 @@ const CrearUsuario = () => {
     
     }
     try {
-      const {data}=await clientAxios.post('/admin/crear_usuario',{nombre,password,email,area,rol})
+      const {data}=await clientAxios.post('/foros/crear_usuario',{nombre,password,email,area,rol})
       setAlert({msg:"Usuario Creado Correctamente" , error :false})
     } catch (error) {
       setAlert({
@@ -41,12 +40,6 @@ const CrearUsuario = () => {
     }
   };
   const { msg } = alert;
-=======
-import React from 'react'
-import { Link } from 'react-router-dom'
-
-const CrearUsuario = () => {
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
   return (
     <div className="container mx-auto mt-5 md:mt-3 p-5 md:flex md:justify-center">
         <div className="md:3/5 lg:w-2/5 bg-white shadow rounded-md px-10 py-5">
@@ -58,13 +51,8 @@ const CrearUsuario = () => {
             Registra a los
             <span className="text-sky-500"> a los nuevos empleados</span>
         </h3>
-<<<<<<< HEAD
         {msg && <Alert alert={alert} />}
         <form onSubmit={handleSubmit} className="my-5">
-=======
-
-        <form  className="my-5">
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
             <label
             htmlFor="nombre"
             className=" font-bold uppercase block text-xl text-gray-600"
@@ -74,11 +62,8 @@ const CrearUsuario = () => {
             <input
             id="nombre"
             type="text"
-<<<<<<< HEAD
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
-=======
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
             placeholder="Nombre Completo"
             className="w-full mt-3 p-3 border rounded-xl bg-gray-200 cursor-pointer"
             />
@@ -91,11 +76,8 @@ const CrearUsuario = () => {
             <input
             id="email"
             type="email"
-<<<<<<< HEAD
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-=======
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
             placeholder="Email Laboral"
             className="w-full mt-3 p-3 border rounded-xl bg-gray-200 cursor-pointer"
             />
@@ -108,11 +90,8 @@ const CrearUsuario = () => {
             <input
             id="password"
             type="password"
-<<<<<<< HEAD
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-=======
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
             placeholder="Contraseña por Defecto"
             className="w-full mt-3 p-3 border rounded-xl bg-gray-200 cursor-pointer"
             />
@@ -125,7 +104,6 @@ const CrearUsuario = () => {
             <input
             id="area"
             type="number"
-<<<<<<< HEAD
             value={area}
             min="1"
             max="10"
@@ -146,13 +124,6 @@ const CrearUsuario = () => {
             placeholder="Rol"
             className="w-full mt-3 p-3 border rounded-xl bg-gray-200 cursor-pointer"
             />
-=======
-            min="1"
-            max="10"
-            className="w-full mt-3 p-3 border rounded-xl bg-gray-200 cursor-pointer"
-            />
-
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
             <input
             type="submit"
             value="Crear Usuario"

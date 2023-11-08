@@ -1,5 +1,9 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
+import Comentario from "./Comentario.js";
+import Foro from "./Foro.js";
+
+const { Schema } = mongoose;
 
 const usuarioSchema=mongoose.Schema({
     nombre:{
@@ -34,7 +38,9 @@ const usuarioSchema=mongoose.Schema({
     confirmado:{
         type:Boolean,
         default:false,
-    }
+    },
+    foros: [{ type: Schema.Types.ObjectId, ref: 'Foro' }],
+    comentarios: [{ type: Schema.Types.ObjectId, ref: 'Comentario' }]
     
 },
 );

@@ -12,26 +12,18 @@ const Login = () => {
 
   const {setAuth}=useAuth()
 
-<<<<<<< HEAD
  
-=======
-
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
   const navigate=useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-<<<<<<< HEAD
     
-=======
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
     if ([email, password].includes("")) {
       setAlert({
         msg: "Hay uno o mas campos vacios",
         error: true,
       });
       return;
-<<<<<<< HEAD
       
     }
     try {
@@ -54,16 +46,6 @@ const Login = () => {
       localStorage.setItem('token',data.token)
       setAuth(data)
       navigate('/inicio')
-=======
-    
-    }
-    try {
-      const {data}=await clientAxios.post('/usuarios/',{email,password})
-      setAlert({})
-      localStorage.setItem('token',data.token)
-      setAuth(data)
-      navigate("/inicio")
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
     } catch (error) {
       setAlert({
         msg:error.response.data.msg,

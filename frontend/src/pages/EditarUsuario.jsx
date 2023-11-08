@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Alert from "../components/Alert";
@@ -41,12 +40,6 @@ const EditarUsuario = () => {
     }
   };
   const { msg } = alert;
-=======
-import React from 'react'
-import { Link } from 'react-router-dom'
-
-const EditarUsuario = () => {
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
   return (
     <div className="container mx-auto mt-5 md:mt-3 p-5 md:flex md:justify-center">
         <div className="md:3/5 lg:w-2/5 bg-white shadow rounded-md px-10 py-5">
@@ -58,13 +51,8 @@ const EditarUsuario = () => {
             Modifica a los
             <span className="text-sky-500"> empleados</span>
         </h3>
-<<<<<<< HEAD
         {msg && <Alert alert={alert} />}
         <form onSubmit={handleSubmit} className="my-5">
-=======
-
-        <form  className="my-5">
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
             <label
             htmlFor="nombre"
             className=" font-bold uppercase block text-xl text-gray-600"
@@ -74,11 +62,8 @@ const EditarUsuario = () => {
             <input
             id="nombre"
             type="text"
-<<<<<<< HEAD
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
-=======
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
             placeholder="Nombre Completo"
             className="w-full mt-3 p-3 border rounded-xl bg-gray-200 cursor-pointer"
             />
@@ -91,30 +76,12 @@ const EditarUsuario = () => {
             <input
             id="email"
             type="email"
-<<<<<<< HEAD
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email Laboral"
             className="w-full mt-3 p-3 border rounded-xl bg-gray-200 cursor-pointer"
             />
            
-=======
-            placeholder="Email Laboral"
-            className="w-full mt-3 p-3 border rounded-xl bg-gray-200 cursor-pointer"
-            />
-            <label
-            htmlFor="password"
-            className=" font-bold uppercase block text-xl text-gray-600 mt-3"
-            >
-            Contraseña por Defecto
-            </label>
-            <input
-            id="password"
-            type="password"
-            placeholder="Contraseña por Defecto"
-            className="w-full mt-3 p-3 border rounded-xl bg-gray-200 cursor-pointer"
-            />
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
             <label
             htmlFor="area"
             className=" font-bold uppercase block text-xl text-gray-600 mt-3"
@@ -124,7 +91,6 @@ const EditarUsuario = () => {
             <input
             id="area"
             type="number"
-<<<<<<< HEAD
             value={area}
             min="1"
             max="10"
@@ -145,13 +111,6 @@ const EditarUsuario = () => {
             placeholder="Rol"
             className="w-full mt-3 p-3 border rounded-xl bg-gray-200 cursor-pointer"
             />
-=======
-            min="1"
-            max="10"
-            className="w-full mt-3 p-3 border rounded-xl bg-gray-200 cursor-pointer"
-            />
-
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
             <input
             type="submit"
             value="Editar Usuario"

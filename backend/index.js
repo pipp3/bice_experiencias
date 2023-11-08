@@ -3,11 +3,9 @@ import dotenv from "dotenv";
 import cors from "cors";
 import conectarDB from './config/db.js';
 import usuarioRoutes from './routes/usuarioRoutes.js'
-<<<<<<< HEAD
 import adminRoutes from './routes/adminRoutes.js'
 import reportRoutes from './routes/reportRoutes.js'
-=======
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
+import foroRoutes from './routes/foroRoutes.js'
 
 const app= express();
 app.use(express.json());
@@ -28,14 +26,6 @@ const corsOptions={
         }
     }
 }
-<<<<<<< HEAD
-=======
-
-app.use(cors(corsOptions))
-
-//Routing
-app.use("/api/usuarios",usuarioRoutes);
->>>>>>> ba37c3450a41cdca14008b6b8c88d683414a86ca
 
 app.use(cors(corsOptions))
 
@@ -43,6 +33,7 @@ app.use(cors(corsOptions))
 app.use("/api/usuarios",usuarioRoutes);
 app.use("/api/admin",adminRoutes);
 app.use("/api/reportes",reportRoutes);
+app.use("/api/foros",foroRoutes);
 
 const PORT = process.env.PORT || 4000;
 app.listen(4000,()=>{
