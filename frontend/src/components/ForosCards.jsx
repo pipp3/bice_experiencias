@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import useAuth from "../hooks/useAuth";
 import { AuthProvider } from "../context/AuthProvider";
 import clientAxios from '../config/ClientAxios';
+import { useNavigate } from 'react-router-dom';
 
 
 const ForoCard = ({ foro }) => {
   const { titulo, asunto, creador, creacion, comentarios,_id } = foro;
   const { auth } = useAuth();
+  const navigate=useNavigate();
 
   const handleEliminar = async () => {
     try {
@@ -22,7 +24,8 @@ const ForoCard = ({ foro }) => {
             Authorization: `Bearer ${token}`,
           },
         };  
-      await clientAxios.delete('/foros/eliminar_foro/${_id}',config);
+      await clientAxios.delete(`/foros/eliminar_foro/${_id}`,config);
+      navigate("/perfil/mis-foros");
       // Lógica adicional después de eliminar, por ejemplo, recargar la lista de foros
     } catch (error) {
       console.error('Error al eliminar el foro', error);

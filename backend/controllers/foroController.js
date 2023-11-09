@@ -36,23 +36,24 @@ const create_foro = async (req, res) => {
 };
 
 const delete_foro=async(req,res)=>{
-    const id_user = req.usuario._id;
+    const id_user = req.usuario._id.toString();
     const id_foro=req.params.id
     console.log('ID del usuario:', id_user);
     console.log('ID del foro:', id_foro);
+    
     Foro.findById(id_foro)
     .then(foro => {
       if (!foro) {
         return res.status(404).json({ mensaje: 'Foro no encontrado' });
       }
-
+      //console.log(foro.creador.toString());
       // Verifica si el foro pertenece al usuario logueado
       if (foro.creador.toString() !== id_user) {
         return res.status(403).json({ mensaje: 'No tienes permiso para eliminar este foro' });
       }
 
       // Si el foro le pertenece al usuario, elimínalo
-      foro.remove()
+      foro.deleteOne()
         .then(() => {
           res.json({ mensaje: 'Foro eliminado con éxito' });
         })
