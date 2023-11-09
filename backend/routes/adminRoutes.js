@@ -8,7 +8,7 @@ import { checkToken } from "../controllers/usuarioController.js";
 
 const router = express.Router();
 
-router.post("/eliminar_usuario", delete_user,checkToken);
+router.post("/eliminar_usuario", delete_user,checkAuth);
 router.post("/crear_usuario", create_user,checkToken);
 router.post("/editar_usuario", edit_user,checkToken);
 

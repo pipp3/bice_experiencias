@@ -6,9 +6,9 @@ import { checkToken } from "../controllers/usuarioController.js";
 
 const router = express.Router();
 
-router.post("/crear_foro",checkToken,create_foro);
-router.delete("/eliminar_foro",checkToken,delete_foro);
-router.get("/mis_foros",checkToken,mostrar_foros);
+router.post("/crear_foro",checkAuth,create_foro);
+router.delete("/eliminar_foro/:id",checkAuth,delete_foro);
+router.get("/mis_foros",checkAuth,mostrar_foros);
 
 
 

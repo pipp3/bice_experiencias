@@ -6,6 +6,7 @@ import clientAxios from "../config/ClientAxios";
 import useAuth from "../hooks/useAuth";
 import { AuthProvider } from "../context/AuthProvider";
 
+
 const CrearForo = () => {
   const [titulo, setTitulo] = useState("");
   const [asunto, setAsunto] = useState("");
@@ -23,10 +24,21 @@ const CrearForo = () => {
       return;
     }
     try {
+      const token = localStorage.getItem("token");
+      if (!token){
+        console.log("Cerrando sesion")
+      }
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
       const { data } = await clientAxios.post("/foros/crear_foro", {
         titulo,
         asunto,
-      });
+      },config);
       setAlert({ msg: "Foro Creado Correctamente", error: false });
     } catch (error) {
       setAlert({

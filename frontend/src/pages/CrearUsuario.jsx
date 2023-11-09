@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import Alert from "../components/Alert";
 import clientAxios from "../config/ClientAxios";
@@ -15,7 +15,7 @@ const CrearUsuario = () => {
   const [alert, setAlert] = useState({});
 
   const {setAuth}=useAuth()
-
+  
 
   const navigate=useNavigate()
 
@@ -30,7 +30,7 @@ const CrearUsuario = () => {
     
     }
     try {
-      const {data}=await clientAxios.post('/foros/crear_usuario',{nombre,password,email,area,rol})
+      const {data}=await clientAxios.post('/admin/crear_usuario',{nombre,password,email,area,rol})
       setAlert({msg:"Usuario Creado Correctamente" , error :false})
     } catch (error) {
       setAlert({
