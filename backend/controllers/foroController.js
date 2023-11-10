@@ -38,9 +38,7 @@ const create_foro = async (req, res) => {
 const delete_foro=async(req,res)=>{
     const id_user = req.usuario._id.toString();
     const id_foro=req.params.id
-    console.log('ID del usuario:', id_user);
-    console.log('ID del foro:', id_foro);
-    
+  
     Foro.findById(id_foro)
     .then(foro => {
       if (!foro) {
@@ -68,6 +66,25 @@ const delete_foro=async(req,res)=>{
     
 }
 
+const edit_foro=async(req,res)=>{
+  const id_foro = req.params.id;
+  const nuevosDatos = req.body;
+  try {
+    // Buscar el foro en la base de datos por su ID y actualizar los campos necesarios
+    const foro = await Foro.findByIdAndUpdate(id_foro, nuevosDatos, { new: true });
+
+    if (!foro) {
+      return res.status(404).json({ mensaje: 'Foro no encontrado' });
+    }
+
+    return res.status(200).json({ mensaje: 'Foro editado correctamente', foro });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ mensaje: 'Error interno del servidor' });
+  }
+
+}
+
 const mostrar_foros = async (req, res) => {
   try {
     const user_id = req.usuario._id;
@@ -77,5 +94,20 @@ const mostrar_foros = async (req, res) => {
     res.status(500).json({ mensaje: 'Error al buscar foros', error: error.message });
   }
 };
+const get_foro=async(req,res)=>{
+  const id_foro = req.params.id;
+  try {
+    const foro = await Foro.findById(id_foro);
 
-export {create_foro,delete_foro,mostrar_foros}
+    if (!foro) {
+      return res.status(404).json({ msg: 'Foro no encontrado' });
+    }
+
+    res.status(200).json(foro);
+  } catch (error) {
+    console.error('Error al obtener el foro', error);
+    res.status(500).json({ msg: 'Error interno del servidor' });
+  }
+}
+
+export {create_foro,delete_foro,mostrar_foros,edit_foro,get_foro}

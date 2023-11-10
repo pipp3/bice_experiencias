@@ -12,7 +12,7 @@ import Encuestas from "./pages/Encuestas";
 import Panel from "./pages/Panel";
 import Reportar from "./pages/Reportar";
 import Foro from "./pages/Foro";
-
+import EditarForo from "./pages/EditarForo";
 
 import CrearUsuario from "./pages/CrearUsuario";
 import EditarUsuario from "./pages/EditarUsuario";
@@ -49,6 +49,7 @@ function App() {
               <Route index element={<Perfil/>}/>
               <Route path="mis-foros" element={<MisForos/>}/>
               <Route path="crear-foro" element={<CrearForo/>}/>
+              <Route path="editar-foro/:id" element={<EditarForo/>}/>
             </Route>
 
             <Route path="/panel" element={<ProtectedRoute/>}>
@@ -57,7 +58,6 @@ function App() {
               <Route path="editar-usuario" element={<EditarUsuario/>}/>
               <Route path="eliminar-usuario" element={<EliminarUsuario/>}/>
             </Route>
-
           </Routes>
         </AuthProvider>
       </BrowserRouter>

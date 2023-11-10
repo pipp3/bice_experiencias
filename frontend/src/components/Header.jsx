@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-
+import MenuDesplegable from "./MenuDesplegable";
 
 const Header = () => {
   const { auth } = useAuth();
-  const [isOpen, setIsOpen] = useState(false);
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-  };
+ 
   return (
     <header>
       <nav className="flex items-center justify-between flex-wrap bg-gray-200 p-6">
@@ -59,35 +56,7 @@ const Header = () => {
             Bienvenido
             <p className="text-sky-800 inline-block">&nbsp; {auth.nombre}</p>
           </h2>
-          <Link to="/perfil/mis-foros"
-                className="inline-block text-sm px-4 py-2 leading-none border rounded font-semibold bg-sky-500 text-white border-white hover:border-transparent hover:text-white hover:bg-sky-700 mt-4 lg:mt-0">
-            Mis foros
-          </Link>
-          <div>
-            {auth.rol == "admin" ? (
-              <Link
-                to="/panel"
-                className="inline-block text-sm px-4 py-2 leading-none border rounded font-semibold bg-sky-500 text-white border-white hover:border-transparent hover:text-white hover:bg-sky-700 mt-4 lg:mt-0"
-              >
-                Admin Panel
-              </Link>
-            ) : (
-              <Link
-                to="reportar"
-                className="inline-block text-sm px-4 py-2 leading-none border rounded font-semibold bg-sky-500 text-white border-white hover:border-transparent hover:text-white hover:bg-sky-700 mt-4 lg:mt-0"
-              >
-                Reportar Usuario
-              </Link>
-            )}
-
-            <Link
-              to="/"
-              onClick={handleLogout}
-              className="inline-block text-sm px-4 py-2 leading-none border rounded font-semibold bg-sky-500 text-white border-white hover:border-transparent hover:text-white hover:bg-sky-700 mt-4 lg:mt-0"
-            >
-              Cerrar Sesion
-            </Link>
-          </div>
+          <MenuDesplegable/>
         </div>
       </nav>
     </header>

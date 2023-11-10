@@ -32,6 +32,20 @@ const ForoCard = ({ foro }) => {
     }
   };
 
+  const handleEditar=async()=>{
+    try {
+      if(_id){
+        navigate(`/perfil/editar-foro/${_id}`);
+      }else{
+        console.error('No se proporcionó un ID de foro válido');
+      }
+    } catch (error) {
+      console.error('Error al editar el foro', error);
+    }
+    
+    
+  }
+
   return (
     <div className="bg-white shadow-lg rounded-lg p-4 m-4 w-2/4">
       <h2 className="text-2xl font-bold text-sky-700">{titulo}</h2>
@@ -40,7 +54,7 @@ const ForoCard = ({ foro }) => {
       <p className="text-gray-500 font-semibold">Fecha de Creación: {creacion}</p>
       <p className="text-gray-500 font-semibold">Comentarios: {comentarios.length}</p>
       <button  onClick={handleEliminar} className='bg-red-500 text-white border rounded-lg py-2 px-3 uppercase cursor-pointer font-semibold my-2 hover:bg-red-700'>Eliminar</button>
-      <button className='bg-sky-500 text-white border rounded-lg py-2 px-3 uppercase cursor-pointer font-semibold my-2 mx-2 hover:bg-sky-700'>Editar</button>
+      <button onClick={handleEditar} className='bg-sky-500 text-white border rounded-lg py-2 px-3 uppercase cursor-pointer font-semibold my-2 mx-2 hover:bg-sky-700'>Editar</button>
       {/* Agrega cualquier otro detalle que desees mostrar en la tarjeta */}
     </div>
   );

@@ -98,7 +98,7 @@ const CrearForo = () => {
             className="bg-sky-700 text-white w-2/5 py-3 mt-5 font-bold rounded-md uppercase hover:cursor-pointer hover:bg-sky-900 transition-colors content-center"
           />
           <Link
-              to="/perifl/mis-foros"
+              to="/perfil/mis-foros"
               className="bg-sky-700 text-white text-center w-1/5 py-3 mt-5 float-right font-bold rounded-md uppercase hover:cursor-pointer hover:bg-sky-900 transition-colors content-center"
             >
               Volver
