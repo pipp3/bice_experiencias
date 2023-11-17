@@ -21,6 +21,7 @@ import EliminarUsuario from "./pages/EliminarUsuario";
 import CrearForo from "./pages/CrearForo";
 import Perfil from "./pages/Perfil";
 import MisForos from "./pages/MisForos";
+import MisReportes from "./pages/MisReportes";
 
 import { AuthProvider } from "./context/AuthProvider";
 
@@ -50,6 +51,7 @@ function App() {
               <Route path="mis-foros" element={<MisForos/>}/>
               <Route path="crear-foro" element={<CrearForo/>}/>
               <Route path="editar-foro/:id" element={<EditarForo/>}/>
+              <Route path="mis-reportes" element={<MisReportes/>}/>
             </Route>
 
             <Route path="/panel" element={<ProtectedRoute/>}>

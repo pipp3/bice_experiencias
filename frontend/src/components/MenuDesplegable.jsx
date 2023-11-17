@@ -38,10 +38,10 @@ const MenuDesplegable = () => {
             </Link>
           ) : (
             <Link
-              to="/reportar"
+              to="/perfil/mis-reportes"
               className="block px-2 py-2 w-full text-gray-800 hover:bg-blue-500 hover:text-white"
             >
-              Reportar Usuario
+              Mis Reportes
             </Link>
           )}
           <Link
