@@ -1,28 +1,42 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import useAuth from "../hooks/useAuth";
+import { FaBars } from 'react-icons/fa';
+import useAuth from '../hooks/useAuth';
 
 const MenuDesplegable = () => {
-    const { auth } = useAuth();
-    const [menuVisible, setMenuVisible] = useState(false);
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-      };
-    const toggleMenu = () => {
-        setMenuVisible(!menuVisible);
-      };
+  const { auth } = useAuth();
+  const [menuVisible, setMenuVisible] = useState(false);
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+  };
+
+  const showMenu = () => {
+    setMenuVisible(true);
+  };
+
+  const hideMenu = () => {
+    setMenuVisible(false);
+  };
 
   return (
-    <div className="relative">
+    <div
+      className="relative"
+      onMouseEnter={showMenu}
+      
+    >
       <button
-        onClick={toggleMenu}
         className="bg-blue-600 text-white px-6 py-2 rounded focus:outline-none focus:shadow-outline"
       >
-        Menú
+        <FaBars />
       </button>
+
       {menuVisible && (
-        <div className="absolute right-0 w-48 mt-2 bg-white border rounded shadow-lg">
+        <div
+          className="absolute right-0 w-48 mt-2 bg-white border rounded shadow-lg"
+          onMouseEnter={showMenu}
+          onMouseLeave={hideMenu}
+        >
           <Link
             to="/perfil/mis-foros"
             className="block px-2 py-2 text-gray-800 hover:bg-blue-500 hover:text-white"
@@ -54,7 +68,7 @@ const MenuDesplegable = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default MenuDesplegable
+export default MenuDesplegable;

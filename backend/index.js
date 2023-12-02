@@ -6,6 +6,7 @@ import usuarioRoutes from './routes/usuarioRoutes.js'
 import adminRoutes from './routes/adminRoutes.js'
 import reportRoutes from './routes/reportRoutes.js'
 import foroRoutes from './routes/foroRoutes.js'
+import encuestaRoutes from './routes/encuestaRoutes.js'
 
 const app= express();
 app.use(express.json());
@@ -34,6 +35,7 @@ app.use("/api/usuarios",usuarioRoutes);
 app.use("/api/admin",adminRoutes);
 app.use("/api/reportes",reportRoutes);
 app.use("/api/foros",foroRoutes);
+app.use("/api/encuestas",encuestaRoutes)
 
 const PORT = process.env.PORT || 4000;
 app.listen(4000,()=>{

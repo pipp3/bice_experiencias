@@ -13,7 +13,7 @@ const CrearUsuario = () => {
   const [area, setArea] = useState("");
   const [nombre, setNombre] = useState("");
   const [alert, setAlert] = useState({});
-
+ 
   const {setAuth}=useAuth()
   
 
@@ -38,10 +38,14 @@ const CrearUsuario = () => {
         error:true
       })
     }
+  
   };
   const { msg } = alert;
+
+  
   return (
     <div className="container mx-auto mt-5 md:mt-3 p-5 md:flex md:justify-center">
+
         <div className="md:3/5 lg:w-2/5 bg-white shadow rounded-md px-10 py-5">
             <h1 className="text-sky-600 font-black text-4xl capitalize mt-3">
             Crea nuevos usuarios !

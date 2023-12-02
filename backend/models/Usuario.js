@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import Comentario from "./Comentario.js";
 import Foro from "./Foro.js";
+import Encuesta from "./Encuesta.js";
 
 const { Schema } = mongoose;
 
@@ -40,8 +41,8 @@ const usuarioSchema=mongoose.Schema({
         default:false,
     },
     foros: [{ type: Schema.Types.ObjectId, ref: 'Foro' }],
-    comentarios: [{ type: Schema.Types.ObjectId, ref: 'Comentario' }]
-    
+    comentarios: [{ type: Schema.Types.ObjectId, ref: 'Comentario' }],
+    encuesta:[{type:Schema.Types.ObjectId,ref:'Encuesta'}]
 },
 );
 usuarioSchema.pre('save',async function(next){

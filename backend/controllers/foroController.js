@@ -6,6 +6,7 @@ const create_foro = async (req, res) => {
   try {
     // Validar la entrada
     const { titulo, asunto } = req.body;
+    
     if (!titulo || !asunto) {
       return res.status(400).json({ msg: 'Se requieren título y asunto válidos' });
     }

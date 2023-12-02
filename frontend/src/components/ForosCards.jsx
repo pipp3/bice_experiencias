@@ -25,7 +25,7 @@ const ForoCard = ({ foro }) => {
           },
         };  
       await clientAxios.delete(`/foros/eliminar_foro/${_id}`,config);
-      navigate("/perfil/mis-foros");
+      window.location.reload()
       // Lógica adicional después de eliminar, por ejemplo, recargar la lista de foros
     } catch (error) {
       console.error('Error al eliminar el foro', error);

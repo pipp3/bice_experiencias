@@ -23,6 +23,8 @@ import Perfil from "./pages/Perfil";
 import MisForos from "./pages/MisForos";
 import MisReportes from "./pages/MisReportes";
 
+import CrearEncuesta from "./pages/CrearEncuesta";
+
 import { AuthProvider } from "./context/AuthProvider";
 
 
@@ -59,6 +61,7 @@ function App() {
               <Route path="crear-usuario" element={<CrearUsuario/>}/>
               <Route path="editar-usuario" element={<EditarUsuario/>}/>
               <Route path="eliminar-usuario" element={<EliminarUsuario/>}/>
+              <Route path="crear-encuesta" element={<CrearEncuesta/>}/>
             </Route>
           </Routes>
         </AuthProvider>
