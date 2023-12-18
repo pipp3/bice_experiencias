@@ -1,4 +1,4 @@
-# Bice Experiencias: Applicacion WEB para gestionar la satisfaccion de los empleados del banco BICE
+# Bice Experiencias: Aplicacion WEB para gestionar la satisfaccion de los empleados de un banco
 
 Para correr el Servidor:
 
