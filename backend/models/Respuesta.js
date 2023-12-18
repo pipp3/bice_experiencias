@@ -6,10 +6,7 @@ import Usuario from "./Usuario.js";
 const { Schema } = mongoose;
 
 const respuestaSchema=mongoose.Schema({
-    empleado_id:{
-        type: Schema.Types.ObjectId, ref: 'Usuario'
-    },
-    respuesta_usuario:{
+    respuesta:{
         type:String,
         required: true,
         trim: true,

@@ -1,13 +1,14 @@
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import EncuestasCards from "../components/EncuestasCards";
+import ReportesNoRevCards from "../components/ReportesNoRevCards";
 import { FaUserPlus, FaUserEdit, FaUserMinus } from "react-icons/fa";
 import { BsFillBookmarkCheckFill } from "react-icons/bs";
 import { Axios } from "axios";
 import clientAxios from "../config/ClientAxios";
 const Panel = () => {
   const [encuestas, setEncuestas] = useState([]);
-
+  const [reportes, setReportes] = useState([]);
   useEffect(() => {
     // Función para obtener encuestas
     const obtenerEncuestas = async () => {
@@ -39,6 +40,32 @@ const Panel = () => {
     obtenerEncuestas();
   }, []); // El segundo argumento [] asegura que el efecto se ejecute solo una vez al montar el componente
 
+  useEffect(() => {
+    const obtenerReportes = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          console.log("Usuario no autenticado");
+        }
+
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const response = await clientAxios.get(
+          "/reportes/reportes-no-revisados",
+          config
+        );
+        const data = await response.data;
+        setReportes(data);
+      } catch (error) {
+        console.error("Error al obtener los reportes:", error);
+      }
+    };
+    obtenerReportes();
+  }, []);
   return (
     <div className="grid place-items-center">
       <h1 className="text-sky-600 text-4xl font-semibold mt-5">
@@ -62,20 +89,35 @@ const Panel = () => {
       </nav>
       <nav className="flex items-center justify-between flex-wrap mt-5">
         <div>
-        <NavLink to="crear-encuesta" title="Crear encuesta">
+          <NavLink to="crear-encuesta" title="Crear encuesta">
             <BsFillBookmarkCheckFill className="icon" />
             Crear encuestas
           </NavLink>
-        
         </div>
       </nav>
+      <div className="flex">
+        <div className="mt-8 ml-10">
+          <h2 className="text-sky-600 text-2xl font-semibold mb-4">
+            Encuestas
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {encuestas.map((encuesta) => (
+              <EncuestasCards key={encuesta._id} encuesta={encuesta} />
+            ))}
+          </div>
+        </div>
 
-      <div className="mt-8">
-        <h2 className="text-sky-600 text-2xl font-semibold mb-4">Encuestas</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {encuestas.map((encuesta) => (
-            <EncuestasCards key={encuesta.id} encuesta={encuesta} />
-          ))}
+        <div className="mt-8 ml-10">
+          <h2 className="text-sky-600 text-2xl font-semibold mb-4">Reportes</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {Array.isArray(reportes) ? (
+              reportes.map((reporte) => (
+                <ReportesNoRevCards key={reporte.id} reporte={reporte} />
+              ))
+            ) : (
+              <p>No hay reportes disponibles</p>
+            )}
+          </div>
         </div>
       </div>
     </div>

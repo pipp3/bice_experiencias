@@ -15,9 +15,14 @@ const comentarioSchema=mongoose.Schema({
         trim: true,
     },
     creacion:{
-        type:Date,
-        required: true,
-        trim: true,
+        type:String,
+        default: () => {
+            const now = new Date();
+            const dd = String(now.getDate()).padStart(2, '0');
+            const mm = String(now.getMonth() + 1).padStart(2, '0'); // +1 porque enero es 0
+            const aaaa= String(now.getFullYear()); // Obtiene los últimos 2 dígitos del año
+            return `${dd}-${mm}-${aaaa}`;
+          }
     },
     foro: {
          type: Schema.Types.ObjectId,

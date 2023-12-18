@@ -9,10 +9,14 @@ import ForgetPassword from "./pages/ForgetPassword";
 import NewPassword from "./pages/NewPassword";
 import Inicio from "./pages/Inicio";
 import Encuestas from "./pages/Encuestas";
+import ResponderEncuesta from "./pages/ResponderEncuesta";
 import Panel from "./pages/Panel";
 import Reportar from "./pages/Reportar";
+import Foros from "./pages/Foros";
 import Foro from "./pages/Foro";
 import EditarForo from "./pages/EditarForo";
+import Responder from "./pages/Responder";
+import Resultados from "./pages/Resultados";
 
 import CrearUsuario from "./pages/CrearUsuario";
 import EditarUsuario from "./pages/EditarUsuario";
@@ -24,6 +28,7 @@ import MisForos from "./pages/MisForos";
 import MisReportes from "./pages/MisReportes";
 
 import CrearEncuesta from "./pages/CrearEncuesta";
+import Preguntas from "./pages/Preguntas";
 
 import { AuthProvider } from "./context/AuthProvider";
 
@@ -43,9 +48,7 @@ function App() {
 
             <Route path="/inicio" element={<ProtectedRoute/>}>
               <Route index element={<Inicio/>}/>
-              <Route path="encuestas" element={<Encuestas/>}/>
               <Route path="reportar" element={<Reportar/>}/>
-              <Route path="foro" element={<Foro/>}/>
             </Route>
 
             <Route path="/perfil" element={<ProtectedRoute/>}>
@@ -62,6 +65,19 @@ function App() {
               <Route path="editar-usuario" element={<EditarUsuario/>}/>
               <Route path="eliminar-usuario" element={<EliminarUsuario/>}/>
               <Route path="crear-encuesta" element={<CrearEncuesta/>}/>
+              <Route path="añadir-preguntas/:id" element={<Preguntas/>}/>
+              <Route path="responder-reporte/:id" element={<Responder/>}/>
+              <Route path="resultados/:id" element={<Resultados/>}/>
+            </Route>
+
+            <Route path="/foros" element={<ProtectedRoute/>}>
+              <Route index element={<Foros/>}/>
+              <Route path="ver/:id" element={<Foro/>}/>
+            </Route>
+
+            <Route path="/encuestas" element={<ProtectedRoute/>}>
+              <Route index element={<Encuestas/>}/>
+              <Route path="responder/:id" element={<ResponderEncuesta/>}/>
             </Route>
           </Routes>
         </AuthProvider>

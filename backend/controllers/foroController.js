@@ -111,4 +111,16 @@ const get_foro=async(req,res)=>{
   }
 }
 
-export {create_foro,delete_foro,mostrar_foros,edit_foro,get_foro}
+const listar_foros=async(req,res)=>{
+  try {
+    // Obtener todos los foros ordenados por fecha de creación de forma descendente
+    const foros = await Foro.find().sort({creacion: -1 });
+
+    res.status(200).json(foros);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error interno del servidor');
+  }
+}
+
+export {create_foro,delete_foro,mostrar_foros,edit_foro,get_foro,listar_foros}

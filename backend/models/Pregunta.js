@@ -15,12 +15,10 @@ const preguntaSchema=mongoose.Schema({
         required: true,
         trim: true,
     },
-    alternativas:[{type:String,trim: true,}]
-    ,
     encuesta_id:{
         type: Schema.Types.ObjectId, ref: 'Encuesta'
     },
-    respuestas_id:[{type: Schema.Types.ObjectId, ref: 'Respuesta'}]
+    respuestas:[{type: Schema.Types.ObjectId, ref: 'Respuesta'}]
 })
 
 

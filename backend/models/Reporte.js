@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 
-
 const reporteSchema=mongoose.Schema({
     reportado:{
         type:String,
@@ -20,6 +19,14 @@ const reporteSchema=mongoose.Schema({
     descripcion:{
         type:String,
         required: true,
+        trim: true,
+    },
+    revisado:{
+        type:Boolean,
+        trim: true,
+    },
+    respuesta:{
+        type:String,
         trim: true,
     }
 })

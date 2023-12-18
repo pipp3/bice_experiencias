@@ -33,19 +33,19 @@ const Header = () => {
               Inicio
             </Link>
             <Link
-              to="encuestas"
+              to="/encuestas"
               className="block mt-4 lg:inline-block lg:mt-0 text-sky-400 font-semibold text-xl hover:text-sky-700 mr-4"
             >
               Encuestas
             </Link>
             <Link
-              to="foro"
+              to="/foros"
               className="block mt-4 lg:inline-block lg:mt-0 text-sky-400 font-semibold text-xl hover:text-sky-700 mr-4"
             >
               Foros
             </Link>
             <Link
-              to="reportar"
+              to="/inicio/reportar"
               className="block mt-4 lg:inline-block lg:mt-0 text-sky-400 font-semibold text-xl hover:text-sky-700 mr-4"
             >
               Reportar

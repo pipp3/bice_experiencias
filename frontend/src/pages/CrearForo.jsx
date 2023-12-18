@@ -40,6 +40,7 @@ const CrearForo = () => {
         asunto,
       },config);
       setAlert({ msg: "Foro Creado Correctamente", error: false });
+      
     } catch (error) {
       setAlert({
         msg: error.response.data.msg,

@@ -11,7 +11,7 @@ const encuestaSchema=mongoose.Schema({
         trim: true,
     },
     estado:{
-        type:String,
+        type:Boolean,
         required: true,
         trim: true,
     },

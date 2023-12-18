@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet, Navigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { FadeLoader } from "react-spinners";
 
 const ProtectedRoute = () => {
@@ -26,6 +27,7 @@ const ProtectedRoute = () => {
       ) : (
         <Navigate to="/" />
       )}
+      <Footer/>
     </div>
   );
 };

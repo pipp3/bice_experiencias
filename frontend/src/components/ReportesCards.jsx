@@ -6,7 +6,7 @@ import clientAxios from "../config/ClientAxios";
 import { useNavigate } from "react-router-dom";
 
 const ReportesCards = ({ reporte }) => {
-  const { reportado, reportante, motivo, descripcion } = reporte;
+  const { reportado, reportante, motivo, descripcion,revisado,respuesta } = reporte;
   return (
     <div className="bg-white shadow-lg rounded-lg p-4 m-4 w-2/4">
       <h2 className="text-2xl font-bold text-sky-700">{motivo}</h2>
@@ -15,6 +15,12 @@ const ReportesCards = ({ reporte }) => {
       <p className="text-gray-500 font-semibold">
         Reportado: {reportado}
       </p>
+      {revisado && (
+        <div>
+          <p className="text-gray-500 font-semibold">Respuesta: {respuesta}</p>
+          {/* Agrega cualquier detalle adicional sobre la respuesta si es necesario */}
+        </div>
+      )}
       {/*<button
         onClick={handleEliminar}
         className="bg-red-500 text-white border rounded-lg py-2 px-3 uppercase cursor-pointer font-semibold my-2 hover:bg-red-700"
